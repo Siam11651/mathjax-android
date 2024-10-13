@@ -1,0 +1,42 @@
+<!Doctype html>
+<html lang="en-US">
+    <head>
+        <style>
+
+        </style>
+        <title>webview</title>
+        <style>
+            #renderer {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div
+                id="renderer"
+                style="font-size: 2rem;">
+
+        </div>
+        <script type="text/javascript">
+            const latex = decodeURI(location.search);
+            const elem = document.getElementById("renderer");
+
+            if(latex.length > 1) {
+                elem.innerText = `$${latex.substring(1)}$`;
+            }
+
+            console.log(elem.innerText);
+        </script>
+        <script type="text/javascript">
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+              }
+            };
+        </script>
+        <script
+                id="MathJax-script"
+                async
+                src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>
